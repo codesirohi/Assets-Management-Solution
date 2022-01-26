@@ -1,0 +1,105 @@
+<div class="nav-bar">
+    <span class="search-box">
+        <input 
+        id="search-input" 
+        type="text"
+        class="tbox"
+        placeholder="Search here..."
+        autocomplete="off"
+        spellcheck="false"
+        >
+    </span>
+
+    <span>
+        <button type="button" class="btn btn-light" (click)="open(content)">Add</button>
+    </span>
+
+</div>
+
+
+
+
+<!-- table -->
+<div class="col-10 m-auto">
+    <div class="card">
+      <div class="table">
+        <table class="table table-striped mb-0">
+          <tr class="bg-info">
+            <th class="sort" data-column="ID" data-order="desc" style="display: none;">
+              Employee ID
+            </th>
+            <th class="sort" data-column="Name" data-order="desc">
+              Employee Name
+            </th>
+            <th class="sort" data-column="Age" data-order="desc">
+              Age
+            </th>
+            <th>Options</th>
+          </tr>
+    
+          <tbody id="myTable">
+            <tr *ngFor="let row of employeeData">
+              <td style="display: none;">{{row.id}}</td>
+              <td>{{row.name}}</td>
+              <td>{{row.age}}</td>
+              <td>
+                <button type="button" (click)="open(content); onEdit(row);" class="btn btn-light">Edit </button>
+                <button type="button" (click)="delEmployeeDetails(row);" class="btn btn-light ml-2">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+         
+        </table>
+
+        
+
+      </div>
+    </div>
+  </div>
+  
+
+
+ <!-- pagination buttons -->
+ <div class="btn-toolbar justify-content-center fixed-bottom" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group" >
+    <button type="button" class="btn btn-light" (click)="pageStart()">First</button>
+    <button type="button" class="btn btn-light" (click)="pageDec()">&#9668;</button>
+    <button type="button" class="btn btn-light" (click)="pageInc()">&#9656;</button>
+    <button type="button" class="btn btn-light" (click)="pageEnd()">Last</button>
+  </div>
+</div>
+
+
+
+<!-- modal -->
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add or Update Employee Data</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formValueEmp" >
+        
+        <div class="form-group col-12">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+        
+        <div class="form-group col-12">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" formControlName="age">
+        </div>
+  
+      </form>
+    </div>
+    <div class="modal-footer justify-content-center">
+      <button type="button" class="btn btn-light" (click)="modal.close('Save click'); postEmployeeDetails(); ">Submit</button>
+      <button type="button" class="btn btn-light" (click)="modal.close('Save click');  updateEmployeeDetails()">Update</button>
+    </div>
+
+   
+  </ng-template>
+  
+  
