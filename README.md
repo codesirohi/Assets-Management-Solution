@@ -16,9 +16,9 @@ Typescript, Angular, HTML, CSS and JSON-Server.
 ## Features
 
 - Server Side Pagination, Filtering and Sort.
-- SOLID Principles of OOP.
 - Reactive Form is used.
 - Edit, Update and Delete of JSON Data. 
+- SOLID Principles were kept in mind to keep code base clean, reusable and readable.
 
 
 
