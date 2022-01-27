@@ -1,6 +1,26 @@
-# TwitterEmployee
+# Employe and Department Management Solution
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+
+## 🛠 Skills
+Typescript, Angular, HTML, CSS and JSON-Server.
+
+
+## Screenshots
+
+![User Interface](https://www.linkpicture.com/q/Screenshot2_1.png)
+![User Interface](https://www.linkpicture.com/q/Screenshot2_2.png)
+
+
+
+## Features
+
+- Server Side Pagination, Filtering and Sort.
+- Reactive Form is used.
+- Edit, Update and Delete of JSON Data. 
+- SOLID Principles were kept in mind to keep code base clean, reusable and readable.
+
+
 
 ## Development server
 
