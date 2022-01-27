@@ -7,6 +7,7 @@
         placeholder="Search here..."
         autocomplete="off"
         spellcheck="false"
+        (keyup.enter)="search()"
         >
     </span>
 
@@ -28,10 +29,10 @@
             <th class="sort" data-column="ID" data-order="desc" style="display: none;">
               Employee ID
             </th>
-            <th class="sort" data-column="Name" data-order="desc">
+            <th class="sort" data-column="Name" data-order="desc" (click)="sortCurrentName()">
               Employee Name
             </th>
-            <th class="sort" data-column="Age" data-order="desc">
+            <th class="sort" data-column="Age" data-order="desc" (click)="sortCurrentAge()">
               Age
             </th>
             <th>Options</th>

@@ -98,27 +98,46 @@ export class EmployeeComponent implements OnInit {
     this.getEmployeeDetails();
 
   }
+
+  //Previous page
   pageDec(){
     this.api.pageDown();
     this.getEmployeeDetails();
   }
 
-// will add page end later
+  //First Page
   pageStart(){
     this.api.pageFirst();
     this.getEmployeeDetails();
   }
 
+  //Last page
   pageEnd(){
-    this.api.pageLast();
-    this.getEmployeeDetails();
+    this.api.pageLast(this.url)
+    .subscribe(res=>{
+      this.employeeData = res;
+    })
+  }
+
+//sorting the data by name
+  sortCurrentName(){
+    this.employeeData.sort((a:any,b:any)=>(a.name>b.name)?1:-1)
+  }
+
+//sortingthe data by age
+  sortCurrentAge(){
+    this.employeeData.sort((a:any,b:any)=>(a.age>b.age)?1:-1)
   }
 
 
-
-
-
-
+//search
+  search(val:string){
+    this.api.searchEmployee(this.url,val)
+    .subscribe(res=>{
+      this.employeeData =res;
+    })
+     
+  }
 
 
 
